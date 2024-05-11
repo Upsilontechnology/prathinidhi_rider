@@ -18,9 +18,9 @@ class _dashBoardScreenState extends State<dashBoardScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(icon: CircleAvatar(
-        radius:25,
-          child: Icon(Icons.person)),
-
+        radius:65,
+          child: Icon(Icons.person)
+      ),
       ),
       bottomNavigationBar: navbuttom(),
       body: Padding(
@@ -87,13 +87,17 @@ class _dashBoardScreenState extends State<dashBoardScreen> {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.redAccent,
-        onPressed: () => {
-        }, // Example: Open notifications screen
-        child: Icon(Icons.home_filled,color: Colors.white,),
-        elevation: 2.0,
-        shape: CircleBorder(),// Elevation of the FAB
+      floatingActionButton: SizedBox(
+        height: 80,
+        width: 80,
+        child: FloatingActionButton(
+          backgroundColor: Colors.redAccent,
+          onPressed: () => {
+          }, // Example: Open notifications screen
+          child: Icon(Icons.home_filled,color: Colors.white,),
+          elevation: 2.0,
+          shape: CircleBorder(),// Elevation of the FAB
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );

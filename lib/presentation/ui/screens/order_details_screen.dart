@@ -25,27 +25,33 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
           }),
       body: Column(
         children: [
+
+          Text("data"),
           Expanded(
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  SizedBox(height: 20,),
                   Container(
                     height: 850,
-                    width: 380,
+                    width: 390,
                     decoration: BoxDecoration(
                         color: Colors.grey.shade300,
                         borderRadius: BorderRadius.circular(12)),
                     child: Padding(
-                      padding: const EdgeInsets.all(12.0),
+                      padding: const EdgeInsets.symmetric(horizontal: 12,vertical: 12),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           SizedBox(
                             height: 20,
                           ),
-                          Text("Name",style:Theme.of(context).textTheme.titleMedium,),
-                          SizedBox(height: 5,),
+                          Text(
+                            "Name",
+                            style: Theme.of(context).textTheme.titleMedium,
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
                           TextField(
                             readOnly: true,
                             decoration: InputDecoration(),
@@ -53,16 +59,22 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                           SizedBox(
                             height: 10,
                           ),
-                          Text("Mobile No",style:Theme.of(context).textTheme.titleMedium),
-                          SizedBox(height: 5,),
+                          Text("Mobile No",
+                              style: Theme.of(context).textTheme.titleMedium),
+                          SizedBox(
+                            height: 5,
+                          ),
                           TextField(
                             readOnly: true,
                           ),
                           SizedBox(
                             height: 10,
                           ),
-                          Text("Location",style:Theme.of(context).textTheme.titleMedium),
-                          SizedBox(height: 5,),
+                          Text("Location",
+                              style: Theme.of(context).textTheme.titleMedium),
+                          SizedBox(
+                            height: 5,
+                          ),
                           TextField(
                             maxLines: 2,
                             readOnly: true,
@@ -70,8 +82,11 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                           SizedBox(
                             height: 10,
                           ),
-                          Text("Product Description",style:Theme.of(context).textTheme.titleMedium),
-                          SizedBox(height: 5,),
+                          Text("Product Description",
+                              style: Theme.of(context).textTheme.titleMedium),
+                          SizedBox(
+                            height: 5,
+                          ),
                           TextField(
                             maxLines: 3,
                             readOnly: true,
@@ -79,28 +94,37 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                           SizedBox(
                             height: 10,
                           ),
-                          Text("Client Budget",style:Theme.of(context).textTheme.titleMedium),
-                          SizedBox(height: 5,),
+                          Text("Client Budget",
+                              style: Theme.of(context).textTheme.titleMedium),
+                          SizedBox(
+                            height: 5,
+                          ),
                           TextField(
                             readOnly: true,
                           ),
                           SizedBox(
                             height: 10,
                           ),
-                          Text("Company Demand",style:Theme.of(context).textTheme.titleMedium),
-                          SizedBox(height: 5,),
+                          Text("Company Demand",
+                              style: Theme.of(context).textTheme.titleMedium),
+                          SizedBox(
+                            height: 5,
+                          ),
                           TextField(
                             readOnly: true,
                           ),
                           SizedBox(
                             height: 10,
                           ),
-                          Text("Product Image",style:Theme.of(context).textTheme.titleMedium),
-                          SizedBox(height: 5,)
+                          Text("Product Image",
+                              style: Theme.of(context).textTheme.titleMedium),
+                          SizedBox(
+                            height: 5,
+                          )
                         ],
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),

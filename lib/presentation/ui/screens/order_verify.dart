@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:prathinidhi_rider/presentation/ui/screens/delivery_confrim_screen.dart';
 import 'package:prathinidhi_rider/presentation/ui/utility/app_color.dart';
 import 'package:prathinidhi_rider/presentation/ui/widgets/appbar.dart';
+import 'package:prathinidhi_rider/presentation/ui/widgets/floatingaction.dart';
+import 'package:prathinidhi_rider/presentation/ui/widgets/navbar.dart';
 import 'package:prathinidhi_rider/presentation/ui/widgets/textbutton.dart';
 
 class OrderVerifyScreen extends StatefulWidget {
@@ -17,6 +19,7 @@ class _OrderVerifyScreenState extends State<OrderVerifyScreen> {
       appBar: CustomAppBar(icon: Icon(Icons.arrow_back_ios_new_outlined,color: Colors.white,),
     ontap:(){  Navigator.of(context).pop();
       }),
+      bottomNavigationBar: navbuttom(),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -34,8 +37,8 @@ class _OrderVerifyScreenState extends State<OrderVerifyScreen> {
                     SizedBox(height: 10,),
                     ListTile(
                       leading: CircleAvatar(
-                        radius: 30,
-                        child: Icon(Icons.person_pin,size: 55,),
+                        radius: 35,
+                        child: Icon(Icons.person,size: 65,),
                       ),
                       title: Text("Mohammad shahid",style: TextStyle(fontSize: 25,fontWeight: FontWeight.w700),),
                       subtitle: Text("+8801317 686 695"),
@@ -72,8 +75,12 @@ class _OrderVerifyScreenState extends State<OrderVerifyScreen> {
           ],
         ),
       ),
+      floatingActionButton: floatingaction(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
+
+
 
   Padding get OPT_section {
     return Padding(

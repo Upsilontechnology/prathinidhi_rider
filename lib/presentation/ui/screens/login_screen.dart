@@ -24,17 +24,19 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 200,),
+              SizedBox(height: 100,),
               Center(child: Image.asset("assets/riderlogo.png")),
               Text("Login",style:Theme.of(context).textTheme.titleLarge,),
               SizedBox(height: 20,),
               TextField(
+                keyboardType: TextInputType.number ,
                 decoration: InputDecoration(
                   hintText: "Phone number"
                 ),
               ),
               SizedBox(height: 10,),
               TextField(
+                keyboardType: TextInputType.text,
                 obscureText: _obscureText,
                 obscuringCharacter: '*',
                 decoration: InputDecoration(
@@ -50,7 +52,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   )
                 ),
-
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

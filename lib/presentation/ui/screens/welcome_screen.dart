@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:prathinidhi_rider/presentation/ui/screens/login_screen.dart';
+
 import 'package:prathinidhi_rider/presentation/ui/screens/searchLocation%20_screen.dart';
 import 'package:prathinidhi_rider/presentation/ui/screens/tile.dart';
 import 'package:prathinidhi_rider/presentation/ui/utility/app_color.dart';
@@ -62,6 +63,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 text: 'Become a rider',
                 txtcolor: Colors.white,
               ),
+
 
             ],
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prathinidhi_rider/presentation/ui/utility/app_color.dart';
 
 class navbuttom extends StatelessWidget {
   const navbuttom({
@@ -9,7 +10,7 @@ class navbuttom extends StatelessWidget {
   Widget build(BuildContext context) {
     return BottomAppBar(
       color: Colors.white,
-      elevation: 10,
+      //elevation: 2,
       shape: CircularNotchedRectangle(), // Bottom bar shape with a notch
       notchMargin: 8.0, // Margin for the notch
       child: Container(

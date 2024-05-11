@@ -40,18 +40,21 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
                     height: 20,
                   ),
                   TextField(
+                    keyboardType: TextInputType.name,
                     decoration: InputDecoration(hintText: "Your Name"),
                   ),
                   SizedBox(
                     height: 10,
                   ),
                   TextField(
+                    keyboardType: TextInputType.number,
                     decoration: InputDecoration(hintText: "Phone number"),
                   ),
                   SizedBox(
                     height: 10,
                   ),
                   TextField(
+                    keyboardType: TextInputType.text,
                     obscureText: _obscureText,
                     obscuringCharacter: '*',
                     decoration: InputDecoration(
