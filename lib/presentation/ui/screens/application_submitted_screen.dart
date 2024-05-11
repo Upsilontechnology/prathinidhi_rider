@@ -32,13 +32,14 @@ class ApplicationSubmittedScreen extends StatelessWidget {
                         SizedBox(
                           height: 20,
                         ),
-                        Image.asset("assets/done.png"),
+                        Image.asset("assets/done.png",height: 50,),
                         Text(
                           "Your Application has been submitted.",
                           style: TextStyle(
                               fontSize: 18, fontWeight: FontWeight.w700),
                         ),
-                        Text("Your application under review.")
+                        Text("Your application under review."),
+                        SizedBox(height: 20,)
                       ],
                     ),
                   ),

@@ -25,7 +25,7 @@ class _OrderVerifyScreenState extends State<OrderVerifyScreen> {
           children: [
             SizedBox(height: 50,),
             Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(12.0),
               child: Container(
                 height: 260,
                 decoration: BoxDecoration(
@@ -34,7 +34,7 @@ class _OrderVerifyScreenState extends State<OrderVerifyScreen> {
                 ),
                 child: Column(
                   children: [
-                    SizedBox(height: 10,),
+                    SizedBox(height: 25,),
                     ListTile(
                       leading: CircleAvatar(
                         radius: 35,
@@ -43,8 +43,9 @@ class _OrderVerifyScreenState extends State<OrderVerifyScreen> {
                       title: Text("Mohammad shahid",style: TextStyle(fontSize: 25,fontWeight: FontWeight.w700),),
                       subtitle: Text("+8801317 686 695"),
                     ),
+                    SizedBox(height: 20,),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 2,),
+                      padding: const EdgeInsets.symmetric(horizontal: 12,),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -57,8 +58,9 @@ class _OrderVerifyScreenState extends State<OrderVerifyScreen> {
                         ],
                       ),
                     ),
+                    SizedBox(height: 20,),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 2),
+                      padding: const EdgeInsets.symmetric(horizontal: 12),
                       child: CustomTextButton(onPressed: () {  }, text: 'Emergency Call', color: AppColors.primaryColor, txtcolor: Colors.white,),
                     )
                   ],
@@ -67,7 +69,7 @@ class _OrderVerifyScreenState extends State<OrderVerifyScreen> {
             ),
             OPT_section,
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.symmetric(horizontal: 12),
               child: CustomTextButton(onPressed: () {
                 Get.to(DeliveryConfrimScreen());
               }, text: ' Delivered', color: AppColors.primaryColor, txtcolor: Colors.white,),

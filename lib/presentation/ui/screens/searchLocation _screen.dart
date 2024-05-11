@@ -67,18 +67,18 @@ class _Search_locationScreenState extends State<Search_locationScreen> {
                   'Select the district you are at the moment',
                   style: TextStyle(
                     fontSize: 16.0,
-                    fontWeight: FontWeight.bold,
+                    //fontWeight: FontWeight.bold,
                   ),
                 ),
               ],
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(10.0),
             child: TextField(
               decoration: InputDecoration(
                 labelText: 'Search Location',
-                prefixIcon: Icon(Icons.search),
+                //prefixIcon: Icon(Icons.search),
               ),
               onChanged: (value) {
                 _filterLocations(value);

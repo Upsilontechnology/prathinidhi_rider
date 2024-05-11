@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:prathinidhi_rider/presentation/ui/screens/tile.dart';
@@ -6,6 +5,7 @@ import 'package:prathinidhi_rider/presentation/ui/utility/app_color.dart';
 import 'package:prathinidhi_rider/presentation/ui/widgets/appbar.dart';
 import 'package:prathinidhi_rider/presentation/ui/widgets/navbar.dart';
 import 'package:prathinidhi_rider/presentation/ui/widgets/cashcard.dart';
+
 class dashBoardScreen extends StatefulWidget {
   const dashBoardScreen({super.key});
 
@@ -17,10 +17,8 @@ class _dashBoardScreenState extends State<dashBoardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(icon: CircleAvatar(
-        radius:65,
-          child: Icon(Icons.person)
-      ),
+      appBar: CustomAppBar(
+        icon: CircleAvatar(radius: 85, child: Icon(Icons.person)),
       ),
       bottomNavigationBar: navbuttom(),
       body: Padding(
@@ -33,12 +31,12 @@ class _dashBoardScreenState extends State<dashBoardScreen> {
                 height: 30,
                 width: 500,
                 decoration: BoxDecoration(
-                  color: Colors.grey.shade300,
-                  borderRadius: BorderRadius.all(Radius.circular(12))
-                ),
+                    color: Colors.grey.shade300,
+                    borderRadius: BorderRadius.all(Radius.circular(12))),
                 child: Align(
                     alignment: Alignment.center,
-                    child: Text(" Notice : In this section a notice appear for all ride")),
+                    child: Text(
+                        " Notice : In this section a notice appear for all ride")),
               ),
               Divider(
                 height: 40, // Adjust the height of the divider
@@ -51,8 +49,19 @@ class _dashBoardScreenState extends State<dashBoardScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  SizedBox(width: 50,),
-                  TextButton(onPressed: (){},child: Text("Withdraw ",style: TextStyle(fontWeight: FontWeight.w800,color: AppColors.primaryColor,fontSize: 20),),)
+                  SizedBox(
+                    width: 50,
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      "Withdraw ",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w800,
+                          color: AppColors.primaryColor,
+                          fontSize: 20),
+                    ),
+                  )
                 ],
               ),
               Divider(
@@ -64,22 +73,27 @@ class _dashBoardScreenState extends State<dashBoardScreen> {
               //SizedBox(height: 10,),
               Align(
                   alignment: Alignment.bottomLeft,
-                  child: Text("Order Status",style: TextStyle(fontSize: 22,fontWeight: FontWeight.w600),)),
-              SizedBox(height: 5,),
+                  child: Text(
+                    "Order Status",
+                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
+                  )),
+              SizedBox(
+                height: 5,
+              ),
               SingleChildScrollView(
                 child: Column(
                   children: [
                     Container(
-                      height: 350,
-                      width: 900,
-                      decoration: BoxDecoration(
-                        color: Colors.grey.shade200,
-                        borderRadius: BorderRadius.all(Radius.circular(12))
-                      ),child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: ListViewScreen(),
-                      )
-                    ),
+                        height: 350,
+                        width: 900,
+                        decoration: BoxDecoration(
+                            color: Colors.grey.shade200,
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(12))),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: ListViewScreen(),
+                        )),
                   ],
                 ),
               ),
@@ -91,18 +105,18 @@ class _dashBoardScreenState extends State<dashBoardScreen> {
         height: 80,
         width: 80,
         child: FloatingActionButton(
-          backgroundColor: Colors.redAccent,
+          backgroundColor: AppColors.primaryColor,
           onPressed: () => {
           }, // Example: Open notifications screen
-          child: Icon(Icons.home_filled,color: Colors.white,),
+          child: Icon(
+            Icons.home_filled,
+            color: Colors.white,
+          ),
           elevation: 2.0,
-          shape: CircleBorder(),// Elevation of the FAB
+          shape: CircleBorder(), // Elevation of the FAB
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
-
 }
-
-

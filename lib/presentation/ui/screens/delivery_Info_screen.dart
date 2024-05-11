@@ -1,9 +1,12 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:prathinidhi_rider/presentation/ui/screens/application_submitted_screen.dart';
+import 'package:prathinidhi_rider/presentation/ui/screens/from_screen.dart';
 import 'package:prathinidhi_rider/presentation/ui/utility/app_color.dart';
 import 'package:prathinidhi_rider/presentation/ui/widgets/grid_view.dart';
 import 'package:prathinidhi_rider/presentation/ui/widgets/header.dart';
+import 'package:prathinidhi_rider/presentation/ui/widgets/loaction_region.dart';
 import 'package:prathinidhi_rider/presentation/ui/widgets/textbutton.dart';
 
 class deliveryInfoScreen extends StatefulWidget {
@@ -21,21 +24,26 @@ class _deliveryInfoScreenState extends State<deliveryInfoScreen> {
         child: Column(
           children: [
             header(),
-            SizedBox(height: 50,),
-            Text(" Which region you want to access for delivery?"),
-            TextField(
-              decoration: InputDecoration(
-                     hintText: "Choose your region for deliveary  >"
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(height: 30,),
+                  Text("Which region you want to access for delivery?",style: TextStyle(fontSize: 16,fontWeight: FontWeight.w700),),
+                  RegionSearchLocation(),
+                  SizedBox(height: 10,),
+                  Text("Which vehicle you want to choose for your delivery?",style: TextStyle(fontWeight: FontWeight.w700,fontSize: 16)),
+                  geid_view(),
+                  Padding(
+                    padding: const EdgeInsets.all(6.0),
+                    child: CustomTextButton(onPressed: () {
+                      Get.to(ApplicationForm());
+                    }, text: 'Next Step', color: AppColors.primaryColor, txtcolor: Colors.white,),
+                  )
+                ],
               ),
             ),
-            Text("Which vehicle you want to choose for your delivery?"),
-            geid_view(),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: CustomTextButton(onPressed: () {
-                Get.to(ApplicationSubmittedScreen());
-              }, text: 'Next Step', color: AppColors.primaryColor, txtcolor: Colors.white,),
-            )
           ],
         ),
       ),

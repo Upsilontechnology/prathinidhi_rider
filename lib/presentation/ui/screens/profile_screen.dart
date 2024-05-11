@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:prathinidhi_rider/presentation/ui/screens/dashboard_screen.dart';
 import 'package:prathinidhi_rider/presentation/ui/utility/app_color.dart';
 import 'package:prathinidhi_rider/presentation/ui/widgets/appbar.dart';
+import 'package:prathinidhi_rider/presentation/ui/widgets/floatingaction.dart';
 import 'package:prathinidhi_rider/presentation/ui/widgets/navbar.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -13,26 +14,32 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-
-
   final List<MenuItem> menuItems = [
     MenuItem(title: 'Profile', icon: Icons.account_circle),
     MenuItem(title: 'Notifications', icon: Icons.notifications),
     MenuItem(title: 'History', icon: Icons.history),
-    MenuItem(title: 'Rewards Point', icon: Icons.star),
-    MenuItem(title: 'Legal', icon: Icons.policy),
+    MenuItem(title: 'Rewards Point', icon: Icons.emoji_events_sharp),
+    MenuItem(title: 'Legal', icon: Icons.info_outlined),
     MenuItem(title: 'Log out', icon: Icons.logout),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(icon: Icon(Icons.arrow_back_ios_new_outlined,color: Colors.white,),
-    ontap:(){  Navigator.of(context).pop();
-    },),
+      appBar: CustomAppBar(
+        icon: Icon(
+          Icons.arrow_back_ios_new_outlined,
+          color: Colors.white,
+        ),
+        ontap: () {
+          Navigator.of(context).pop();
+        },
+      ),
       body: Column(
         children: [
-          SizedBox(height: 20,),
+          SizedBox(
+            height: 20,
+          ),
           ListView.separated(
             shrinkWrap: true,
             itemCount: menuItems.length,
@@ -41,37 +48,24 @@ class _ProfileScreenState extends State<ProfileScreen> {
               return ListTile(
                 leading: Icon(menuItem.icon),
                 title: Text(menuItem.title),
-                onTap: () {
-
-                },
+                onTap: () {},
               );
-            }, separatorBuilder: (BuildContext context, int index) {
+            },
+            separatorBuilder: (BuildContext context, int index) {
               return Divider(
                 color: Colors.grey[400],
                 indent: 45,
                 endIndent: 45,
               );
-          },
+            },
           ),
-
         ],
       ),
       bottomNavigationBar: navbuttom(),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.grey.shade300,
-        onPressed: () => {
-          Get.to(dashBoardScreen()),
-        }, // Example: Open notifications screen
-        child: Icon(Icons.home_filled,color: Colors.red,),
-        elevation: 2.0,
-        shape: CircleBorder(),// Elevation of the FAB
-      ),
+      floatingActionButton: floatingaction(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
-
-
   }
-
 }
 
 class MenuItem {

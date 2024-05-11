@@ -4,6 +4,7 @@ import 'package:lottie/lottie.dart';
 import 'package:prathinidhi_rider/presentation/ui/screens/dashboard_screen.dart';
 import 'package:prathinidhi_rider/presentation/ui/utility/app_color.dart';
 import 'package:prathinidhi_rider/presentation/ui/widgets/appbar.dart';
+import 'package:prathinidhi_rider/presentation/ui/widgets/floatingaction.dart';
 import 'package:prathinidhi_rider/presentation/ui/widgets/navbar.dart';
 import 'package:prathinidhi_rider/presentation/ui/widgets/textbutton.dart';
 
@@ -50,15 +51,7 @@ class DeliveryConfrimScreen extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.redAccent,
-        onPressed: () => {
-          Get.offAll(dashBoardScreen())
-        }, // Example: Open notifications screen
-        child: Icon(Icons.home_filled,color: Colors.white,),
-        elevation: 2.0,
-        shape: CircleBorder(),// Elevation of the FAB
-      ),
+      floatingActionButton:floatingaction(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
