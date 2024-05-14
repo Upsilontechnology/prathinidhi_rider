@@ -87,7 +87,7 @@ class _dashBoardScreenState extends State<dashBoardScreen> {
                         height: 350,
                         width: 900,
                         decoration: BoxDecoration(
-                            color: Colors.grey.shade200,
+                            color: Colors.grey.shade100,
                             borderRadius:
                                 BorderRadius.all(Radius.circular(12))),
                         child: Padding(

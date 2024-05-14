@@ -33,6 +33,7 @@ class DeliveryConfrimScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SizedBox(height: 50,),
+                  //Lottie.network("https://lottiefiles.com/animations/green-check-1gQEa4FT5C?from=search"),
                   Image.asset("assets/Mask_group.png",height: 60,width: 70,),
                   Text(" Congratulations!",style: Theme.of(context).textTheme.titleLarge,),
                   Text("Product Deliverd Successfully.", style: TextStyle(fontSize: 22,fontWeight: FontWeight.w700),),
@@ -40,7 +41,7 @@ class DeliveryConfrimScreen extends StatelessWidget {
                   Text("You have Earned 5 Star Rating",style: Theme.of(context).textTheme.titleMedium,),
                   SizedBox(height: 30,),
                   Padding(
-                    padding: const EdgeInsets.all(16.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 25),
                     child: CustomTextButton(onPressed: () {
                       Get.to(dashBoardScreen());
                     }, text: 'Done', color: AppColors.primaryColor, txtcolor: Colors.white,),

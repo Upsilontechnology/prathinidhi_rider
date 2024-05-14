@@ -1,31 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'package:prathinidhi_rider/presentation/ui/screens/welcome_screen.dart';
 import 'package:prathinidhi_rider/presentation/ui/utility/app_color.dart';
 
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({super.key});
+  const SplashScreen({Key? key}) : super(key: key);
 
   @override
-  State<SplashScreen> createState() => _SplashScreenState();
+  _SplashScreenState createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
-  @override
+class _SplashScreenState extends State<SplashScreen>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _animation;
 
+  @override
   void initState() {
     super.initState();
-    moveToNextScreen();
+    _controller = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 2),
+    );
+
+    _animation = Tween<double>(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeOut),
+    );
+
+    _controller.forward().whenComplete(() {
+      moveToNextScreen();
+    });
   }
 
-  void moveToNextScreen() async {
-    await Future.delayed(const Duration(seconds: 1),);
+  void moveToNextScreen() {
     Get.offAll(WelcomeScreen());
-
   }
 
-
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.primaryColor,
@@ -33,16 +44,41 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Spacer(),
-            Image.asset("assets/applogo.png"),
-            Text("rider",style: TextStyle(fontSize: 25,fontWeight: FontWeight.w900,color: Colors.white),),
-            Spacer(),
-            //CircularProgressIndicator(),
-            SizedBox(height: 16),
-            SizedBox(height: 16),
+            AnimatedBuilder(
+              animation: _animation,
+              builder: (context, child) {
+                return Transform.scale(
+                  scale: _animation.value,
+                  child: child,
+                );
+              },
+              child: Column(
+                children: [
+                  Image.asset(
+                    "assets/applogo.png",
+                    height: 120,
+                    width: 120,
+                  ),
+                  Text(
+                    "rider",
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.w900,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 }

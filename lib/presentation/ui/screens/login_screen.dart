@@ -31,7 +31,7 @@ class _LoginScreenState extends State<LoginScreen> {
               TextField(
                 keyboardType: TextInputType.number ,
                 decoration: InputDecoration(
-                  hintText: "Phone number"
+                  hintText: "Phone Number"
                 ),
               ),
               SizedBox(height: 10,),

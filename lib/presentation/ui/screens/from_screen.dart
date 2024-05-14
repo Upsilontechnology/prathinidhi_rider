@@ -7,7 +7,7 @@ import 'package:intl/intl.dart';
 import 'package:prathinidhi_rider/presentation/ui/screens/application_submitted_screen.dart';
 import 'package:prathinidhi_rider/presentation/ui/utility/app_color.dart';
 import 'package:prathinidhi_rider/presentation/ui/widgets/header.dart';
-import 'package:prathinidhi_rider/presentation/ui/widgets/textbutton.dart'; // Import DateFormat for date formatting
+import 'package:prathinidhi_rider/presentation/ui/widgets/textbutton.dart';
 
 class ApplicationForm extends StatefulWidget {
   @override
@@ -17,7 +17,7 @@ class ApplicationForm extends StatefulWidget {
 class _ApplicationFormState extends State<ApplicationForm> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  DateTime? _birthday; // Store the selected birthday as DateTime
+  DateTime? _birthday;
   String? _gender;
   String? _location;
   File? _imageFile;
@@ -27,7 +27,6 @@ class _ApplicationFormState extends State<ApplicationForm> {
 
   void _submitForm() {
     if (_formKey.currentState!.validate()) {
-      // Form fields are valid, proceed to submit
       print('Submitting Application...');
       // Implement your submission logic here
     }
@@ -45,10 +44,10 @@ class _ApplicationFormState extends State<ApplicationForm> {
       double fileSizeInMb = fileSizeInBytes / (1024 * 1024);
 
       if (fileSizeInMb > 10) {
-        // File size exceeds 10 MB
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('File size exceeds 10 MB. Please select a smaller file.'),
+            content:
+                Text('File size exceeds 10 MB. Please select a smaller file.'),
           ),
         );
       } else {
@@ -72,40 +71,108 @@ class _ApplicationFormState extends State<ApplicationForm> {
     }
   }
 
+  void _clearFile(String field) {
+    setState(() {
+      switch (field) {
+        case 'image':
+          _imageFile = null;
+          break;
+        case 'nidFront':
+          _nidFrontFile = null;
+          break;
+        case 'nidBack':
+          _nidBackFile = null;
+          break;
+        case 'nomineeImage':
+          _nomineeImageFile = null;
+          break;
+      }
+    });
+  }
+
+  Widget _buildFilePickerButton(String field, File? selectedFile) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        ElevatedButton(
+          onPressed: () => _pickFile(field),
+          child: Row(
+            //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 8),
+                child: Image.asset("assets/upload.png",
+                    height: 47, width: 20, color: Colors.black),
+              ),
+              SizedBox(width: 8),
+              Expanded(
+                child: selectedFile != null
+                    ? Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Flexible(
+                            child: Text(
+                              selectedFile.path.split('/').last,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                          IconButton(
+                            icon: Icon(Icons.clear),
+                            onPressed: () => _clearFile(field),
+                          ),
+                        ],
+                      )
+                    : Text(
+                        'Choose your file (.Png, .jpg File size max 10 mb)',
+                        style: TextStyle(fontSize: 13),
+                      ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Form(
           key: _formKey,
           child: ListView(
             children: [
-              Text("Step 1 : Please fill up the form carefully",style: TextStyle(fontWeight: FontWeight.w600,fontSize: 15),),
-              SizedBox(height: 15,),
-              Text("Your Birthday",style: TextStyle(fontWeight: FontWeight.w600,fontSize: 15)),
-              SizedBox(height: 15,),
+              Text("Step 1: Please fill up the form carefully",
+                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 15)),
+              SizedBox(height: 15),
+              Text("Your Birthday",
+                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 15)),
+              SizedBox(height: 15),
               TextFormField(
                 decoration: InputDecoration(
-                  errorText: _birthday == null ? 'Please enter your birthday' : null,
+                  errorText:
+                      _birthday == null ? 'Please enter your birthday' : null,
                   suffixIcon: IconButton(
-                    icon: Icon(Icons.calendar_today),
+                    icon: Icon(Icons.calendar_today_outlined,
+                        color: Colors.black),
                     onPressed: () {
                       _selectDate(context);
                     },
                   ),
                 ),
-                readOnly: true, // Make the field read-only to prevent direct text input
+                readOnly: true,
                 onTap: () {
-                  _selectDate(context); // Trigger date picker when field is tapped
+                  _selectDate(context);
                 },
                 controller: _birthday == null
                     ? TextEditingController(text: '')
-                    : TextEditingController(text: DateFormat('yyyy-MM-dd').format(_birthday!)),
+                    : TextEditingController(
+                        text: DateFormat('yyyy-MM-dd').format(_birthday!)),
               ),
               SizedBox(height: 20.0),
-              Text('Your Gender',style: TextStyle(fontWeight: FontWeight.w600,fontSize: 15)),
+              Text('Your Gender',
+                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 15)),
               Row(
                 children: [
                   Radio<String>(
@@ -131,10 +198,11 @@ class _ApplicationFormState extends State<ApplicationForm> {
                 ],
               ),
               SizedBox(height: 20.0),
-              Text("Your Present Location",style: TextStyle(fontWeight: FontWeight.w600,fontSize: 15)),
+              Text("Your Present Location",
+                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 15)),
+              Text("(House No / Road Name / Area / District)"),
               TextFormField(
-                decoration: InputDecoration(
-                ),
+                decoration: InputDecoration(),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter your location';
@@ -145,62 +213,38 @@ class _ApplicationFormState extends State<ApplicationForm> {
                   _location = value;
                 },
               ),
-              SizedBox(height: 5,),
+              SizedBox(height: 5),
               Text("Fill up the address with sequence"),
               SizedBox(height: 20.0),
-              Text("Upload your Image",style: TextStyle(fontWeight: FontWeight.w600,fontSize: 15)),
-              ElevatedButton(
-                onPressed: () => _pickFile('image'),
-                child: Column(
-                  children: [
-                    Image.asset("assets/upload.png",height: 30,width: 20,color: Colors.black,),
-                    Text('Choose your file (.Png, .jpg File size max 10 mb)'),
-                  ],
-                ),
-              ),
+              Text("Upload your Image",
+                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 15)),
+              _buildFilePickerButton('image', _imageFile),
               SizedBox(height: 20.0),
-              Text("Your NID Number",style: TextStyle(fontWeight: FontWeight.w600,fontSize: 15)),
+              Text("Your NID Number",
+                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 15)),
               TextField(
-                decoration: InputDecoration(
-
-                ),
+                decoration: InputDecoration(),
               ),
-              Text("National ID Card ( Front Part )",style: TextStyle(fontWeight: FontWeight.w600,fontSize: 15)),
-              ElevatedButton(
-                onPressed: () => _pickFile('nidFront'),
-                child: Column(
-                  children: [
-                    Image.asset("assets/upload.png",height: 30,width: 20,color: Colors.black,),
-                    Text('Choose your file (.Png, .jpg File size max 10 mb)'),
-                  ],
-                ),
-              ),
+              Text("National ID Card (Front Part)",
+                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 15)),
+              _buildFilePickerButton('nidFront', _nidFrontFile),
               SizedBox(height: 20.0),
-              Text("National ID Card ( Back Part )",style: TextStyle(fontWeight: FontWeight.w600,fontSize: 15)),
-              ElevatedButton(
-                onPressed: () => _pickFile('nidBack'),
-                child: Column(
-                  children: [
-                    Image.asset("assets/upload.png",height: 30,width: 20,color: Colors.black,),
-                    Text('Choose your file (.Png, .jpg File size max 10 mb)'),
-                  ],
-                ),
-              ),
+              Text("National ID Card (Back Part)",
+                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 15)),
+              _buildFilePickerButton('nidBack', _nidBackFile),
               SizedBox(height: 20.0),
-              Text("Your Nominee Image ( Father/Mother/Husband/ Wife)",style: TextStyle(fontWeight: FontWeight.w600,fontSize: 15)),
-              ElevatedButton(
-                onPressed: () => _pickFile('nomineeImage'),
-                child: Column(
-                  children: [
-                    Image.asset("assets/upload.png",height: 30,width: 20,color: Colors.black,),
-                    Text('Choose your file (.Png, .jpg File size max 10 mb)'),
-                  ],
-                ),
-              ),
+              Text("Your Nominee Image (Father/Mother/Husband/Wife)",
+                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 15)),
+              _buildFilePickerButton('nomineeImage', _nomineeImageFile),
               SizedBox(height: 32.0),
-              CustomTextButton(onPressed: () {
-                Get.to(ApplicationSubmittedScreen());
-              }, text: ' Submit your Application', color: AppColors.primaryColor, txtcolor: Colors.white,)
+              CustomTextButton(
+                onPressed: () {
+                  Get.to(ApplicationSubmittedScreen());
+                },
+                text: 'Submit your Application',
+                color: AppColors.primaryColor,
+                txtcolor: Colors.white,
+              )
             ],
           ),
         ),
@@ -211,9 +255,9 @@ class _ApplicationFormState extends State<ApplicationForm> {
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? pickedDate = await showDatePicker(
       context: context,
-      initialDate: DateTime.now(), // Set initial date to today's date
-      firstDate: DateTime(1900), // Set earliest selectable date
-      lastDate: DateTime.now(), // Set latest selectable date (today)
+      initialDate: DateTime.now(),
+      firstDate: DateTime(1900),
+      lastDate: DateTime.now(),
     );
 
     if (pickedDate != null && pickedDate != _birthday) {

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:prathinidhi_rider/presentation/ui/screens/dashboard_screen.dart';
 import 'package:prathinidhi_rider/presentation/ui/screens/pending_screen.dart';
 import 'package:prathinidhi_rider/presentation/ui/utility/app_color.dart';
 import 'package:prathinidhi_rider/presentation/ui/widgets/header.dart';
@@ -32,14 +31,19 @@ class ApplicationSubmittedScreen extends StatelessWidget {
                         SizedBox(
                           height: 20,
                         ),
-                        Image.asset("assets/done.png",height: 50,),
+                        Image.asset(
+                          "assets/done.png",
+                          height: 50,
+                        ),
                         Text(
                           "Your Application has been submitted.",
                           style: TextStyle(
                               fontSize: 18, fontWeight: FontWeight.w700),
                         ),
                         Text("Your application under review."),
-                        SizedBox(height: 20,)
+                        SizedBox(
+                          height: 20,
+                        )
                       ],
                     ),
                   ),
@@ -68,7 +72,8 @@ class ApplicationSubmittedScreen extends StatelessWidget {
                       Text(
                           "4. Your Nominee NID Card or Birth Certificate (Original or photocopy)."),
                       Text("5. Driving license for Motorbike."),
-                      Text("6. Utility bill Photocopy ( must be in 2-3 months)."),
+                      Text(
+                          "6. Utility bill Photocopy ( must be in 2-3 months)."),
                       Text("7. 1 passport size photo."),
                       SizedBox(
                         height: 30,

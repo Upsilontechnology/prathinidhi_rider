@@ -52,7 +52,7 @@ class _ListViewScreenState extends State<ListViewScreen> {
     final itemCount = showAllItems ? items.length : 3;
 
     return Scaffold(
-      backgroundColor: Colors.grey.shade200,
+      backgroundColor: Colors.grey.shade100,
       body: ListView.builder(
         itemCount: itemCount,
         itemBuilder: (context, index) {

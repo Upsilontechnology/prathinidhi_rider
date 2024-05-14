@@ -30,19 +30,19 @@ class AppThemeData {
         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         border:  OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: Colors.white, width: 1.5),
+          borderSide: BorderSide(color: Colors.transparent, width: 1.5),
         ),
         enabledBorder:  OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: Colors.white, width: 1.5),
+          borderSide: BorderSide(color: Colors.transparent, width: 1.5),
         ),
         focusedBorder:  OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(width: 1.5, color: Colors.white),
+          borderSide: BorderSide(width: 1.5, color: Colors.transparent),
         ),
         errorBorder:  OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(width: 1.5, color: Colors.white),
+          borderSide: BorderSide(width: 1.5, color: Colors.transparent),
         ),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(

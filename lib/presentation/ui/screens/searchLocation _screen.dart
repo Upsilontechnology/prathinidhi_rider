@@ -91,7 +91,7 @@ class _Search_locationScreenState extends State<Search_locationScreen> {
               itemBuilder: (context, index) {
                 final location = _filteredLocations[index];
                 return ListTile(
-                  title: Text(location),
+                  title: Text(location,style: TextStyle(fontWeight: FontWeight.bold),),
                   onTap: () {
                     setState(() {
                       _selectedLocation = location;

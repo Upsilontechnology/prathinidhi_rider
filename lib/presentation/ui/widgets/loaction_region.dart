@@ -9,16 +9,15 @@ class _RegionSearchLocationState extends State<RegionSearchLocation> {
   TextEditingController _locationController = TextEditingController();
   String _selectedLocation = ""; // Variable to hold the selected location
   List<String> _locations = [
-    'Dhaka',
-    'Chittagong',
-    'Khulna',
-    'Rajshahi',
-    'Sylhet',
-    'Barisal',
-    'Rangpur',
-    'Comilla',
-    'Cox’s Bazar',
-    'Mymensingh'
+    'Agrabad',
+    'GEC Circle',
+    'Jamal Khan',
+    'Pahartoli',
+    'Nasirabad',
+    'Khulshi',
+    'Halishohor',
+    'Chandgaon',
+    'Chandanpura'
   ];
 
   @override
@@ -36,9 +35,8 @@ class _RegionSearchLocationState extends State<RegionSearchLocation> {
         TextFormField(
           controller: _locationController,
           decoration: InputDecoration(
-            labelText: 'Choose your region for delivery',
+            hintText: 'Choose your region for delivery',
             border: OutlineInputBorder(),
-            //prefixIcon: Icon(Icons.search),
             suffixIcon: IconButton(
               icon: Icon(Icons.arrow_drop_down),
               onPressed: () {
@@ -83,7 +81,7 @@ class _RegionSearchLocationState extends State<RegionSearchLocation> {
                   return Column(
                     children: [
                       RadioListTile<String>(
-                        title: Text(location),
+                        title: Text(location,style: TextStyle(fontWeight: FontWeight.bold),),
                         value: location,
                         groupValue: _selectedLocation,
                         onChanged: (String? value) {

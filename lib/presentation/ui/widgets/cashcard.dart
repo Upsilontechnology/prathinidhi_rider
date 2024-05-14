@@ -12,10 +12,10 @@ class Cashcard extends StatelessWidget {
       height: 130,
       width: 600,
       decoration: BoxDecoration(
-        gradient: LinearGradient(colors: [
-           AppColors.primaryColor,
-           Colors.grey.shade600,
-        ]),
+          gradient: LinearGradient(colors: [
+            AppColors.primaryColor,
+            Colors.grey.shade600,
+          ]),
           color: Colors.grey,
           borderRadius: BorderRadius.all(Radius.circular(12))),
       child: Padding(
@@ -27,14 +27,20 @@ class Cashcard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
-                  height: 30,
+                  height: 25,
                 ),
                 Text(
                   "Pratinidhi Cash",
-                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold,color: Colors.white),
+                  style: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
                 ),
                 Text("00 BDT",
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold,color: Colors.white))
+                    style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white))
               ],
             ),
             Icon(

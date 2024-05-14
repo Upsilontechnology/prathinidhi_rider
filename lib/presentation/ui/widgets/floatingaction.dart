@@ -17,7 +17,7 @@ class floatingaction extends StatelessWidget {
           Get.to(dashBoardScreen())
         }, // Example: Open notifications screen
         child: Icon(
-          Icons.home_sharp,size: 35,
+          Icons.home_sharp,size: 30,
           color: AppColors.primaryColor,
         ),
         elevation: 2.0,
