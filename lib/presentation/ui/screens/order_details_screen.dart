@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
+import 'package:get/get.dart';
 import 'package:prathinidhi_rider/presentation/ui/screens/order_verify.dart';
 import 'package:prathinidhi_rider/presentation/ui/utility/app_color.dart';
 import 'package:prathinidhi_rider/presentation/ui/widgets/appbar.dart';
@@ -7,6 +7,7 @@ import 'package:prathinidhi_rider/presentation/ui/widgets/textbutton.dart';
 
 class OrderDetailsScreen extends StatefulWidget {
   const OrderDetailsScreen({super.key});
+
   @override
   State<OrderDetailsScreen> createState() => _OrderDetailsScreenState();
 }
@@ -16,120 +17,177 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-          icon: Icon(
-            Icons.arrow_back_ios_new_outlined,
-            color: Colors.white,
-          ),
-          ontap: () {
-            Navigator.of(context).pop();
-          }),
+        icon: Icon(
+          Icons.arrow_back_rounded,
+          color: Colors.white,
+        ),
+        ontap: () {
+          Navigator.of(context).pop();
+        },
+      ),
       body: Column(
         children: [
-
-          Text("data"),
+          SizedBox(height: 20,),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Details",style: TextStyle(fontSize: 15),),
+                Text("00:59:52",style: TextStyle(fontSize: 15),)
+              ],
+            ),
+          ),
           Expanded(
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  Container(
-                    height: 850,
-                    width: 390,
-                    decoration: BoxDecoration(
-                        color: Colors.grey.shade300,
-                        borderRadius: BorderRadius.circular(12)),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 12,vertical: 12),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            height: 20,
+                  Stack(
+                    alignment: Alignment.topCenter,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 60.0), // Adjust padding to make room for CircleAvatar
+                        child: Container(
+                          height: 1000,
+                          width: double.infinity,
+                          margin: const EdgeInsets.symmetric(horizontal: 12),
+                          decoration: BoxDecoration(
+                            color: Colors.grey.shade300,
+                            borderRadius: BorderRadius.circular(12), // Optional: add rounded corners
                           ),
-                          Text(
-                            "Name",
-                            style: Theme.of(context).textTheme.titleMedium,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 12),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                SizedBox(
+                                  height: 40,
+                                ),
+                                Text(
+                                  "Name",
+                                  style: Theme.of(context).textTheme.titleMedium,
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                TextField(
+                                  readOnly: true,
+                                  decoration: InputDecoration(
+                                      hintText: "Mohammad Shahid"
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Text("Mobile No",
+                                    style: Theme.of(context).textTheme.titleMedium),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                TextField(
+                                  readOnly: true,
+                                  decoration: InputDecoration(
+                                      hintText: "+8801317 686 695"
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Text("Location",
+                                    style: Theme.of(context).textTheme.titleMedium),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                TextField(
+                                  decoration: InputDecoration(
+                                      hintText: "Rahima Mansion, Road No 2, Gec more, Agrabad. Chittagong"
+                                  ),
+                                  maxLines: 2,
+                                  readOnly: true,
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Text("Product Description",
+                                    style: Theme.of(context).textTheme.titleMedium),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                TextField(
+                                  decoration: InputDecoration(
+                                      hintText: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. "
+                                          "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+                                  ),
+                                  maxLines: 3,
+                                  readOnly: true,
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Text("Client Budget",
+                                    style: Theme.of(context).textTheme.titleMedium),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                TextField(
+                                  decoration: InputDecoration(
+                                      hintText: "500"
+                                  ),
+                                  readOnly: true,
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Text("Company Demand",
+                                    style: Theme.of(context).textTheme.titleMedium),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                TextField(
+                                  decoration: InputDecoration(
+                                      hintText: "500"
+                                  ),
+                                  readOnly: true,
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Text("Product Image",
+                                    style: Theme.of(context).textTheme.titleMedium),
+                                SizedBox(
+                                  height: 5,
+                                ),
+
+                                Container(
+                                  height: 200,
+                                  width: 200,
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      image: NetworkImage('https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8c2hvZXxlbnwwfHwwfHx8MA%3D%3D'), // Replace with your product image URL
+                                      fit: BoxFit.cover,
+                                    ),
+                                    borderRadius: BorderRadius.circular(12), // Optional: add rounded corners
+                                  ),
+                                ),
+
+
+                              ],
+                            ),
                           ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          TextField(
-                            readOnly: true,
-                            decoration: InputDecoration(),
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text("Mobile No",
-                              style: Theme.of(context).textTheme.titleMedium),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          TextField(
-                            readOnly: true,
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text("Location",
-                              style: Theme.of(context).textTheme.titleMedium),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          TextField(
-                            maxLines: 2,
-                            readOnly: true,
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text("Product Description",
-                              style: Theme.of(context).textTheme.titleMedium),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          TextField(
-                            maxLines: 3,
-                            readOnly: true,
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text("Client Budget",
-                              style: Theme.of(context).textTheme.titleMedium),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          TextField(
-                            readOnly: true,
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text("Company Demand",
-                              style: Theme.of(context).textTheme.titleMedium),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          TextField(
-                            readOnly: true,
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text("Product Image",
-                              style: Theme.of(context).textTheme.titleMedium),
-                          SizedBox(
-                            height: 5,
-                          )
-                        ],
+                        ),
                       ),
-                    ),
+                      CircleAvatar(
+                        radius: 50,
+                        backgroundImage: NetworkImage('https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D'), // Replace with your image path
+                      ),
+                    ],
                   ),
+                  SizedBox(height: 20,)
                 ],
               ),
             ),
           ),
-          commision_card
+          commision_card,
         ],
       ),
     );

@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:prathinidhi_rider/presentation/ui/screens/from_screen.dart';
 import 'package:prathinidhi_rider/presentation/ui/screens/login_screen.dart';
-
 import 'package:prathinidhi_rider/presentation/ui/screens/searchLocation%20_screen.dart';
-import 'package:prathinidhi_rider/presentation/ui/screens/tile.dart';
 import 'package:prathinidhi_rider/presentation/ui/utility/app_color.dart';
-import 'package:prathinidhi_rider/presentation/ui/widgets/loaction_region.dart';
 import 'package:prathinidhi_rider/presentation/ui/widgets/textbutton.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -67,7 +63,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   txtcolor: Colors.white,
                 ),
                 // TextButton(onPressed: (){
-                //   Get.to(ApplicationForm());
+                //   Get.to(Od());
                 // }, child: Text("data"))
               ],
             ),

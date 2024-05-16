@@ -37,9 +37,13 @@ class _OrderVerifyScreenState extends State<OrderVerifyScreen> {
                   children: [
                     SizedBox(height: 25,),
                     ListTile(
-                      leading: CircleAvatar(
-                        radius: 35,
-                        child: Icon(Icons.person,size: 65,),
+                      leading: Container(
+                        //height: 100,
+                        width: 60,
+                        child: CircleAvatar(
+                          radius: 40,
+                          backgroundImage: NetworkImage('https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D'),
+                        ),
                       ),
                       title: Text("Mohammad shahid",style: TextStyle(fontSize: 25,fontWeight: FontWeight.w700),),
                       subtitle: Text("+8801317 686 695"),

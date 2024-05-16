@@ -14,7 +14,7 @@ class DeliveryConfrimScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(icon: Icon(Icons.arrow_back_ios_new_outlined,color: Colors.white,),
+      appBar: CustomAppBar(icon: Icon(Icons.arrow_back_sharp,color: Colors.white,),
       ontap: (){Navigator.pop(context);},
       ),
       bottomNavigationBar: navbuttom(),
