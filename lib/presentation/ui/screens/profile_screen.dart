@@ -29,7 +29,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       extendBody: true,
       appBar: CustomAppBar(
         icon: Icon(
-          Icons.arrow_back_ios_new_outlined,
+          Icons.arrow_back,
           color: Colors.white,
         ),
         ontap: () {

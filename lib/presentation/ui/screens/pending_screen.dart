@@ -28,7 +28,7 @@ class PendingScreen extends StatelessWidget {
                 Text("Contact to our office with full documents",style: Theme.of(context).textTheme.titleSmall,),
                 SizedBox(height: 10,),
                 CustomTextButton(onPressed: () {
-                  Get.to(dashBoardScreen());
+                  //Get.to(dashBoardScreen());
                 }, color: AppColors.primaryColor, text: 'Contact our Support team', txtcolor: Colors.white,),
                 SizedBox(height: 10,)
               ],

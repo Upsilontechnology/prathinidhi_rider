@@ -32,22 +32,18 @@ class Cashcard extends StatelessWidget {
                 Text(
                   "Pratinidhi Cash",
                   style: TextStyle(
-                      fontSize: 22,
+                      fontSize: 21,
                       fontWeight: FontWeight.bold,
                       color: Colors.white),
                 ),
                 Text("00 BDT",
                     style: TextStyle(
                         fontSize: 22,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w900,
                         color: Colors.white))
               ],
             ),
-            Icon(
-              Icons.add_card,
-              size: 50,
-              color: Colors.white,
-            ),
+            Image.asset("assets/card.png",height: 40,width: 80,color: Colors.white,)
           ],
         ),
       ),

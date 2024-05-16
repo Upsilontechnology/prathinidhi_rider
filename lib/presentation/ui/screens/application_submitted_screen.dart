@@ -32,7 +32,7 @@ class ApplicationSubmittedScreen extends StatelessWidget {
                           height: 20,
                         ),
                         Image.asset(
-                          "assets/done.png",
+                          "assets/checked.png",
                           height: 50,
                         ),
                         Text(

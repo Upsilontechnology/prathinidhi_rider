@@ -54,55 +54,98 @@ class _RegionSearchLocationState extends State<RegionSearchLocation> {
   }
 
   void _showLocationDialog(BuildContext context) {
+    List<String> filteredLocations =
+        _locations; // Initialize with all locations
+
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return AlertDialog(
-          backgroundColor: Colors.white,
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text('Choose your region'),
-              IconButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon: Icon(Icons.clear),
-              )
-            ],
-          ),
-          contentPadding: EdgeInsets.all(16.0),
-          content: Container(
-            width: MediaQuery.of(context).size.width * 0.9, // Set custom width
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: _locations.map((location) {
-                  return Column(
+        return StatefulBuilder(
+          builder: (context, setState) {
+            return Dialog(
+              insetPadding:
+                  EdgeInsets.zero, // Ensure dialog takes up entire screen
+              child: ClipRRect(
+                borderRadius:
+                    BorderRadius.circular(20.0), // Adjust the radius as needed
+                child: Container(
+                  padding: EdgeInsets.all(16.0),
+                  color: Colors.white,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      RadioListTile<String>(
-                        title: Text(location,style: TextStyle(fontWeight: FontWeight.bold),),
-                        value: location,
-                        groupValue: _selectedLocation,
-                        onChanged: (String? value) {
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Choose your region',
+                            style: TextStyle(fontWeight: FontWeight.bold,fontSize: 22),
+                          ),
+                          IconButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            icon: Icon(Icons.clear,color: Colors.black,),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 16.0),
+                      TextField(
+                        decoration: InputDecoration(
+                          hintText: "Search location",
+                        ),
+                        onChanged: (value) {
                           setState(() {
-                            _selectedLocation = value!;
-                            _locationController.text = value; // Update text field
+                            filteredLocations = _locations
+                                .where((location) => location
+                                    .toLowerCase()
+                                    .contains(value.toLowerCase()))
+                                .toList();
                           });
-                          Navigator.pop(context); // Close dialog after selection
                         },
                       ),
-                      Divider(
-                        thickness: 1,
-                        endIndent: 25,
-                        indent: 25,
-                      ), // Divider below each location
+                      SizedBox(height: 8.0),
+                      Expanded(
+                        child: SingleChildScrollView(
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: filteredLocations.map((location) {
+                              return Column(
+                                children: [
+                                  RadioListTile<String>(
+                                    title: Text(
+                                      location,
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    value: location,
+                                    groupValue: _selectedLocation,
+                                    onChanged: (String? value) {
+                                      setState(() {
+                                        _selectedLocation = value!;
+                                        _locationController.text = value;
+                                      });
+                                      Navigator.pop(context);
+                                    },
+                                  ),
+                                  Divider(
+                                    thickness: 1,
+                                    endIndent: 25,
+                                    indent: 25,
+                                  ),
+                                ],
+                              );
+                            }).toList(),
+                          ),
+                        ),
+                      ),
                     ],
-                  );
-                }).toList(),
+                  ),
+                ),
               ),
-            ),
-          ),
+            );
+          },
         );
       },
     );

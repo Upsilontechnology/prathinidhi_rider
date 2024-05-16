@@ -17,7 +17,7 @@ class _OrderVerifyScreenState extends State<OrderVerifyScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      appBar: CustomAppBar(icon: Icon(Icons.arrow_back_ios_new_outlined,color: Colors.white,),
+      appBar: CustomAppBar(icon: Icon(Icons.arrow_back,color: Colors.white,),
     ontap:(){  Navigator.of(context).pop();
       }),
       bottomNavigationBar: navbuttom(),
@@ -28,7 +28,7 @@ class _OrderVerifyScreenState extends State<OrderVerifyScreen> {
             Padding(
               padding: const EdgeInsets.all(12.0),
               child: Container(
-                height: 260,
+                height: 290,
                 decoration: BoxDecoration(
                   color: Colors.grey.shade300,
                   borderRadius: BorderRadius.circular(12)

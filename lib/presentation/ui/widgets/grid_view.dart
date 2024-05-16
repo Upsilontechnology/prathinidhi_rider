@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prathinidhi_rider/presentation/ui/utility/app_color.dart';
 
 class geid_view extends StatefulWidget {
   const geid_view({Key? key}) : super(key: key);
@@ -20,9 +21,10 @@ class _geid_viewState extends State<geid_view> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 6),
+      padding: const EdgeInsets.all(16.0),
       child: SizedBox(
-       height: MediaQuery.of(context).size.height * 0.5, // Adjust the height as needed
+        height: MediaQuery.of(context).size.height *
+            0.5, // Adjust the height as needed
         child: GridView.count(
           crossAxisCount: 2,
           crossAxisSpacing: 10.0,
@@ -39,7 +41,7 @@ class _geid_viewState extends State<geid_view> {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(20.0),
                 child: Container(
-                  color: isSelected[index] ? Colors.red : Colors.grey.shade300,
+                  color: isSelected[index] ? AppColors.primaryColor : Colors.grey.shade300,
                   child: Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -48,13 +50,14 @@ class _geid_viewState extends State<geid_view> {
                           choices[index].icon,
                           size: 50.0,
                           color:
-                              isSelected[index] ? Colors.white : Colors.black87,
+                          isSelected[index] ? Colors.white : Colors.black87,
                         ),
                         SizedBox(height: 10),
                         Text(
                           choices[index].title,
                           style: TextStyle(
                             fontSize: 16,
+                            fontWeight: FontWeight.w600,
                             color: isSelected[index]
                                 ? Colors.white
                                 : Colors.black87,
@@ -80,8 +83,9 @@ class Choice {
 }
 
 const List<Choice> choices = const <Choice>[
-  const Choice(title: 'Motor Bike', icon: Icons.motorcycle),
   const Choice(title: 'Motor Bike', icon: Icons.motorcycle_sharp),
+  const Choice(title: 'Car', icon: Icons.car_crash_outlined),
+  const Choice(title: 'Cycle', icon: Icons.directions_bike),
   const Choice(title: 'Walker', icon: Icons.directions_walk),
-  const Choice(title: 'Cycle', icon: Icons.delivery_dining),
+
 ];

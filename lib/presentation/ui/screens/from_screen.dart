@@ -18,12 +18,18 @@ class _ApplicationFormState extends State<ApplicationForm> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   DateTime? _birthday;
-  String? _gender;
+  String? _gender; // Initialize _gender variable
   String? _location;
   File? _imageFile;
   File? _nidFrontFile;
   File? _nidBackFile;
   File? _nomineeImageFile;
+
+  @override
+  void initState() {
+    super.initState();
+    _gender = 'Male'; // Set default gender selection to 'Male'
+  }
 
   void _submitForm() {
     if (_formKey.currentState!.validate()) {
@@ -46,8 +52,7 @@ class _ApplicationFormState extends State<ApplicationForm> {
       if (fileSizeInMb > 10) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content:
-                Text('File size exceeds 10 MB. Please select a smaller file.'),
+            content: Text('File size exceeds 10 MB. Please select a smaller file.'),
           ),
         );
       } else {
@@ -94,40 +99,47 @@ class _ApplicationFormState extends State<ApplicationForm> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ElevatedButton(
-          onPressed: () => _pickFile(field),
-          child: Row(
-            //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 8),
-                child: Image.asset("assets/upload.png",
-                    height: 47, width: 20, color: Colors.black),
-              ),
-              SizedBox(width: 8),
-              Expanded(
-                child: selectedFile != null
-                    ? Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Flexible(
-                            child: Text(
-                              selectedFile.path.split('/').last,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ),
-                          IconButton(
-                            icon: Icon(Icons.clear),
-                            onPressed: () => _clearFile(field),
-                          ),
-                        ],
-                      )
-                    : Text(
-                        'Choose your file (.Png, .jpg File size max 10 mb)',
-                        style: TextStyle(fontSize: 13),
-                      ),
-              ),
-            ],
+        Container(
+          height: 70,
+          width: double.infinity,
+          child: ElevatedButton(
+            onPressed: () => _pickFile(field),
+            child: selectedFile != null
+                ? Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Flexible(
+                  child: Center(
+                    child: Text(
+                      selectedFile.path.split('/').last,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ),
+                IconButton(
+                  icon: Icon(Icons.clear),
+                  onPressed: () => _clearFile(field),
+                ),
+              ],
+            )
+                : Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 8),
+                  child: Image.asset(
+                    "assets/upload.png",
+                    height: 27,
+                    width: 20,
+                    color: Colors.black,
+                  ),
+                ),
+                SizedBox(width: 8),
+                Text(
+                  'Choose your file (.Png, .jpg File size max 10 mb)',
+                  style: TextStyle(fontSize: 13),
+                ),
+              ],
+            ),
           ),
         ),
       ],
@@ -152,7 +164,7 @@ class _ApplicationFormState extends State<ApplicationForm> {
               TextFormField(
                 decoration: InputDecoration(
                   errorText:
-                      _birthday == null ? 'Please enter your birthday' : null,
+                  _birthday == null ? 'Please enter your birthday' : null,
                   suffixIcon: IconButton(
                     icon: Icon(Icons.calendar_today_outlined,
                         color: Colors.black),
@@ -168,7 +180,7 @@ class _ApplicationFormState extends State<ApplicationForm> {
                 controller: _birthday == null
                     ? TextEditingController(text: '')
                     : TextEditingController(
-                        text: DateFormat('yyyy-MM-dd').format(_birthday!)),
+                    text: DateFormat('yyyy-MM-dd').format(_birthday!)),
               ),
               SizedBox(height: 20.0),
               Text('Your Gender',

@@ -32,7 +32,7 @@ class _deliveryInfoScreenState extends State<deliveryInfoScreen> {
                   SizedBox(height: 30,),
                   Text("Which region you want to access for delivery?",style: TextStyle(fontSize: 16,fontWeight: FontWeight.w700),),
                   RegionSearchLocation(),
-                  SizedBox(height: 10,),
+                  SizedBox(height: 15,),
                   Text("Which vehicle you want to choose for your delivery?",style: TextStyle(fontWeight: FontWeight.w700,fontSize: 16)),
                   geid_view(),
                   Padding(
