@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:prathinidhi_rider/presentation/ui/screens/order_details_screen.dart';
-import 'package:prathinidhi_rider/presentation/ui/screens/order_verify.dart';
+import 'package:prathinidhi_rider/presentation/ui/screens/continue%20a%20rider/order_details_screen.dart';
+import 'package:prathinidhi_rider/presentation/ui/screens/continue%20a%20rider/order_verify.dart';
 import 'package:prathinidhi_rider/presentation/ui/utility/app_color.dart';
 
 class ListViewScreen extends StatefulWidget {

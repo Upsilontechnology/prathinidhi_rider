@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
-import 'package:prathinidhi_rider/presentation/ui/screens/dashboard_screen.dart';
+import 'package:prathinidhi_rider/presentation/ui/screens/continue%20a%20rider/dashboard_screen.dart';
 import 'package:get/get.dart';
-import '../utility/app_color.dart';
-import '../widgets/textbutton.dart';
+import '../../utility/app_color.dart';
+import '../../widgets/textbutton.dart';
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:prathinidhi_rider/presentation/ui/screens/tile.dart';
+import 'package:prathinidhi_rider/presentation/ui/widgets/tile.dart';
 import 'package:prathinidhi_rider/presentation/ui/utility/app_color.dart';
 import 'package:prathinidhi_rider/presentation/ui/widgets/appbar.dart';
 import 'package:prathinidhi_rider/presentation/ui/widgets/navbar.dart';
@@ -19,8 +19,11 @@ class _dashBoardScreenState extends State<dashBoardScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: CustomAppBar(
-        icon: CircleAvatar(radius: 50,
+        icon: Padding(
+          padding: const EdgeInsets.only(left: 12),
+          child: CircleAvatar(radius: 50,
             backgroundImage: NetworkImage('https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D'),
+          ),
         ),
       ),
       bottomNavigationBar: navbuttom(),

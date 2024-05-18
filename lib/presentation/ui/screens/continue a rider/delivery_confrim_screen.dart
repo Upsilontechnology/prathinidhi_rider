@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
-import 'package:prathinidhi_rider/presentation/ui/screens/dashboard_screen.dart';
+import 'package:prathinidhi_rider/presentation/ui/screens/continue%20a%20rider/dashboard_screen.dart';
 import 'package:prathinidhi_rider/presentation/ui/utility/app_color.dart';
 import 'package:prathinidhi_rider/presentation/ui/widgets/appbar.dart';
 import 'package:prathinidhi_rider/presentation/ui/widgets/floatingaction.dart';

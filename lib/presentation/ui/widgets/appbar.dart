@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:prathinidhi_rider/presentation/ui/screens/profile_screen.dart';
+import 'package:prathinidhi_rider/presentation/ui/screens/continue%20a%20rider/profile_screen.dart';
 import 'package:prathinidhi_rider/presentation/ui/utility/app_color.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {

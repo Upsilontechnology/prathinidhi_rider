@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:prathinidhi_rider/presentation/ui/screens/login_screen.dart';
-import 'package:prathinidhi_rider/presentation/ui/screens/searchLocation%20_screen.dart';
+import 'package:prathinidhi_rider/presentation/ui/screens/continue%20a%20rider/login_screen.dart';
+import 'package:prathinidhi_rider/presentation/ui/screens/become%20a%20rider/searchLocation%20_screen.dart';
 import 'package:prathinidhi_rider/presentation/ui/utility/app_color.dart';
 import 'package:prathinidhi_rider/presentation/ui/widgets/textbutton.dart';
 

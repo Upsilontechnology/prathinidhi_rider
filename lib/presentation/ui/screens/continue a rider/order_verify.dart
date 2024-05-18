@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:prathinidhi_rider/presentation/ui/screens/delivery_confrim_screen.dart';
+import 'package:prathinidhi_rider/presentation/ui/screens/continue%20a%20rider/delivery_confrim_screen.dart';
 import 'package:prathinidhi_rider/presentation/ui/utility/app_color.dart';
 import 'package:prathinidhi_rider/presentation/ui/widgets/appbar.dart';
 import 'package:prathinidhi_rider/presentation/ui/widgets/floatingaction.dart';
@@ -55,15 +55,15 @@ class _OrderVerifyScreenState extends State<OrderVerifyScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           SizedBox(
-                              width:170,
+                              width:180,
                               child: CustomTextButton(onPressed: () {  }, text: ' Live Chat', color: AppColors.primaryColor, txtcolor: Colors.white,)),
                           SizedBox(
-                              width:170,
+                              width:180,
                               child: CustomTextButton(onPressed: () {  }, text: ' Call', color: AppColors.primaryColor, txtcolor: Colors.white,)),
                         ],
                       ),
                     ),
-                    SizedBox(height: 20,),
+                    SizedBox(height: 13,),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 12),
                       child: CustomTextButton(onPressed: () {  }, text: 'Emergency Call', color: AppColors.primaryColor, txtcolor: Colors.white,),

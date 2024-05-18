@@ -2,11 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:prathinidhi_rider/presentation/ui/screens/personal_info_screens.dart';
+import 'package:prathinidhi_rider/presentation/ui/screens/become%20a%20rider/personal_info_screens.dart';
 import 'package:prathinidhi_rider/presentation/ui/utility/app_color.dart';
 import 'package:prathinidhi_rider/presentation/ui/widgets/header.dart';
 
-import '../widgets/textbutton.dart';
+import '../../widgets/textbutton.dart';
 
 class Search_locationScreen extends StatefulWidget {
   @override

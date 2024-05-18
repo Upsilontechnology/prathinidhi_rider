@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:prathinidhi_rider/presentation/ui/screens/order_verify.dart';
+import 'package:prathinidhi_rider/presentation/ui/screens/continue%20a%20rider/order_verify.dart';
 import 'package:prathinidhi_rider/presentation/ui/utility/app_color.dart';
 import 'package:prathinidhi_rider/presentation/ui/widgets/appbar.dart';
 import 'package:prathinidhi_rider/presentation/ui/widgets/textbutton.dart';
@@ -202,7 +202,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
         child: Column(
           children: [
             SizedBox(
-              height: 20,
+              height: 30,
             ),
             Text("Your Commission",
                 style: TextStyle(
@@ -224,7 +224,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                 },
                 text: 'Accept',
                 color: Colors.white,
-                txtcolor: AppColors.primaryColor,
+                txtcolor: Colors.black,
               ),
             )
           ],
