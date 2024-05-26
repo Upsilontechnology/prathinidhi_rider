@@ -59,7 +59,7 @@ class _ListViewScreenState extends State<ListViewScreen> {
           // Show "Load More" button at the end of the list when not showing all items
           if (!showAllItems && index == itemCount - 1) {
             return Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(2.0),
               child: TextButton(
                 onPressed: () {
                   // Update the state to show all items
@@ -97,7 +97,7 @@ class _ListViewScreenState extends State<ListViewScreen> {
             subtitle: Text(items[index]['subtitle']!),
             trailing: Text(items[index]['status']!),
           ),
-          //SizedBox(height: 8.0),
+          SizedBox(height: 8.0),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [

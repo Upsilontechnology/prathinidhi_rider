@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-import '../utility/app_color.dart';
-
 class CustomTextButton extends StatelessWidget {
-  CustomTextButton(
-      {required this.onPressed,
-      required this.text,
-      required this.color,
-      required this.txtcolor});
+  const CustomTextButton({
+    required this.onPressed,
+    required this.text,
+    required this.color,
+    required this.txtcolor,
+    Key? key,
+  }) : super(key: key);
 
   final VoidCallback onPressed;
   final String text;
@@ -16,10 +16,14 @@ class CustomTextButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    final isSmallScreen = size.width < 360; // Example threshold for small screens
+    final isLargeScreen = size.width > 800; // Example threshold for large screens
+
     return Padding(
       padding: const EdgeInsets.all(0.0),
       child: SizedBox(
-        height: 50,
+        height: isLargeScreen ? 60 : isSmallScreen ? 40 : 50, // Adjust height based on screen size
         width: double.infinity,
         child: TextButton(
           onPressed: onPressed,
@@ -34,7 +38,7 @@ class CustomTextButton extends StatelessWidget {
             style: TextStyle(
               color: txtcolor,
               fontWeight: FontWeight.w600,
-              fontSize: 22,
+              fontSize: isLargeScreen ? 24 : isSmallScreen ? 18 : 22, // Adjust font size based on screen size
             ),
           ),
         ),

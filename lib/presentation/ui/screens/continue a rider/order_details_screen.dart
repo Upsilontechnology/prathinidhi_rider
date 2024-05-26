@@ -163,7 +163,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                                   width: 200,
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
-                                      image: NetworkImage('https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8c2hvZXxlbnwwfHwwfHx8MA%3D%3D'), // Replace with your product image URL
+                                      image: AssetImage('assets/juta.jpeg'), // Replace with your product image URL
                                       fit: BoxFit.cover,
                                     ),
                                     borderRadius: BorderRadius.circular(12), // Optional: add rounded corners

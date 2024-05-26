@@ -28,13 +28,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Scaffold(
       extendBody: true,
       appBar: CustomAppBar(
-        icon: Icon(
-          Icons.arrow_back,
-          color: Colors.white,
+        icon: Padding(
+          padding: const EdgeInsets.only(left: 12),
+          child: CircleAvatar(radius: 50,
+              backgroundImage: AssetImage("assets/pic.jpeg")
+          ),
         ),
-        ontap: () {
-          Navigator.of(context).pop();
-        },
       ),
       body: Column(
         children: [
@@ -62,9 +61,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
         ],
       ),
-      bottomNavigationBar: navbuttom(),
-      floatingActionButton: floatingaction(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      // bottomNavigationBar: navbuttom(),
+      // floatingActionButton: floatingaction(),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }

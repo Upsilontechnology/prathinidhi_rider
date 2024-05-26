@@ -5,40 +5,53 @@ import 'package:prathinidhi_rider/presentation/ui/screens/become%20a%20rider/sea
 import 'package:prathinidhi_rider/presentation/ui/utility/app_color.dart';
 import 'package:prathinidhi_rider/presentation/ui/widgets/textbutton.dart';
 
-class WelcomeScreen extends StatefulWidget {
-  const WelcomeScreen({super.key});
+class WelcomeScreen extends StatelessWidget {
+  const WelcomeScreen({Key? key}) : super(key: key);
 
-  @override
-  State<WelcomeScreen> createState() => _WelcomeScreenState();
-}
-
-class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   Widget build(BuildContext context) {
+    // Get the screen size
+    final size = MediaQuery.of(context).size;
+
+    // Determine if it's a small screen
+    final bool isSmallScreen = size.width < 600; // Example threshold for small screens
+    final bool isLargeScreen = size.width >= 600;
+
+    // Calculate the font size based on the screen size
+    double fontSize = isSmallScreen ? size.width * 0.08 : isLargeScreen ? size.width * 0.04 : size.width * 0.035;
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Center(
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
-                  height: 200,
+                SizedBox(height: size.height * 0.2),
+                Center(
+                  child: Image.asset(
+                    "assets/riderlogo.png",
+                    height: size.height * 0.3,
+                    width: size.width * 0.7,
+                  ),
                 ),
-                Center(child: Image.asset("assets/riderlogo.png")),
-                Align(
-                    alignment: Alignment.topLeft,
-                    child: Text(
-                      "Welcome to",
-                      style: Theme.of(context).textTheme.titleLarge,
-                    )),
-                Align(
-                    alignment: Alignment.topLeft,
-                    child: Text("Pratinidhi rider app",
-                        style: Theme.of(context).textTheme.titleLarge)),
-                SizedBox(
-                  height: 20,
+                SizedBox(height: size.height * 0.05),
+                Text(
+                  "Welcome to",
+                  style: TextStyle(
+                    fontSize: fontSize,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
+                Text(
+                  "Pratinidhi rider app",
+                  style: TextStyle(
+                    fontSize: fontSize,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: size.height * 0.04),
                 CustomTextButton(
                   onPressed: () {
                     Navigator.push(
@@ -50,21 +63,15 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   text: 'Continue as a rider',
                   txtcolor: Colors.black,
                 ),
-                SizedBox(
-                  height: 10,
-                ),
-
+                SizedBox(height: size.height * 0.01),
                 CustomTextButton(
                   onPressed: () {
-                    Get.to(Search_locationScreen());
+                    Get.to(SearchLocationScreen());
                   },
                   color: AppColors.primaryColor,
                   text: 'Become a rider',
                   txtcolor: Colors.white,
                 ),
-                // TextButton(onPressed: (){
-                //   Get.to(Od());
-                // }, child: Text("data"))
               ],
             ),
           ),

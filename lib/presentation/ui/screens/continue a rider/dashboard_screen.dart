@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:prathinidhi_rider/presentation/ui/widgets/tile.dart';
+import 'package:prathinidhi_rider/presentation/ui/widgets/order_status tile.dart';
 import 'package:prathinidhi_rider/presentation/ui/utility/app_color.dart';
 import 'package:prathinidhi_rider/presentation/ui/widgets/appbar.dart';
 import 'package:prathinidhi_rider/presentation/ui/widgets/navbar.dart';
@@ -22,7 +22,7 @@ class _dashBoardScreenState extends State<dashBoardScreen> {
         icon: Padding(
           padding: const EdgeInsets.only(left: 12),
           child: CircleAvatar(radius: 50,
-            backgroundImage: NetworkImage('https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D'),
+            backgroundImage: AssetImage("assets/pic.jpeg")
           ),
         ),
       ),
@@ -106,14 +106,14 @@ class _dashBoardScreenState extends State<dashBoardScreen> {
         ),
       ),
       floatingActionButton: SizedBox(
-        height: 80,
-        width: 80,
+        height:70,
+        width: 70,
         child: FloatingActionButton(
           backgroundColor: AppColors.primaryColor,
           onPressed: () => {
           }, // Example: Open notifications screen
           child: Icon(
-            Icons.home_filled,
+            Icons.home_sharp,
             color: Colors.white,
           ),
           elevation: 2.0,

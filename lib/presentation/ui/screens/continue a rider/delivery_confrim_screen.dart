@@ -17,7 +17,7 @@ class DeliveryConfrimScreen extends StatelessWidget {
       appBar: CustomAppBar(icon: Icon(Icons.arrow_back_sharp,color: Colors.white,),
       ontap: (){Navigator.pop(context);},
       ),
-      bottomNavigationBar: navbuttom(),
+      //bottomNavigationBar: navbuttom(),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 50),
         child: Column(
@@ -52,8 +52,8 @@ class DeliveryConfrimScreen extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton:floatingaction(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      // floatingActionButton:floatingaction(),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }

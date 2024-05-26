@@ -1,21 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:prathinidhi_rider/presentation/ui/screens/become%20a%20rider/personal_info_screens.dart';
-import 'package:prathinidhi_rider/presentation/ui/utility/app_color.dart';
-import 'package:prathinidhi_rider/presentation/ui/widgets/header.dart';
 
-import '../../widgets/textbutton.dart';
+import '../../widgets/header.dart';
 
-class Search_locationScreen extends StatefulWidget {
+class SearchLocationScreen extends StatefulWidget {
   @override
-  _Search_locationScreenState createState() => _Search_locationScreenState();
+  _SearchLocationScreenState createState() => _SearchLocationScreenState();
 }
 
-class _Search_locationScreenState extends State<Search_locationScreen> {
+class _SearchLocationScreenState extends State<SearchLocationScreen> {
   String _searchText = "";
-  String _selectedLocation = ""; // Variable to hold the selected location
+  String _selectedLocation = "";
   List<String> _locations = [
     'Dhaka',
     'Chittagong',
@@ -48,6 +45,15 @@ class _Search_locationScreenState extends State<Search_locationScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    final bool isSmallScreen = size.width < 600; // Example threshold for small screens
+    final bool isLargeScreen = size.width >= 600;
+
+    // Calculate the font size based on the screen size
+    double welcomeFontSize = isSmallScreen ? size.width * 0.08 : size.width * 0.04;
+    double labelTextFontSize = isSmallScreen ? size.width * 0.04 : size.width * 0.04;
+    double listTextFontSize = isSmallScreen ? size.width * 0.035 : size.width * 0.04;
+
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -60,25 +66,21 @@ class _Search_locationScreenState extends State<Search_locationScreen> {
               children: [
                 Text(
                   "Welcome",
-                  style:
-                      TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: welcomeFontSize, fontWeight: FontWeight.bold),
                 ),
+                SizedBox(height: 8),
                 Text(
                   'Select the district you are at the moment',
-                  style: TextStyle(
-                    fontSize: 16.0,
-                    //fontWeight: FontWeight.bold,
-                  ),
+                  style: TextStyle(fontSize: labelTextFontSize),
                 ),
               ],
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: EdgeInsets.all(10.0),
             child: TextField(
               decoration: InputDecoration(
                 labelText: 'Search Location',
-                //prefixIcon: Icon(Icons.search),
               ),
               onChanged: (value) {
                 _filterLocations(value);
@@ -91,7 +93,10 @@ class _Search_locationScreenState extends State<Search_locationScreen> {
               itemBuilder: (context, index) {
                 final location = _filteredLocations[index];
                 return ListTile(
-                  title: Text(location,style: TextStyle(fontWeight: FontWeight.bold),),
+                  title: Text(
+                    location,
+                    style: TextStyle(fontSize: listTextFontSize, fontWeight: FontWeight.bold),
+                  ),
                   onTap: () {
                     setState(() {
                       _selectedLocation = location;
@@ -102,19 +107,18 @@ class _Search_locationScreenState extends State<Search_locationScreen> {
                     Get.to(PersonalInfoScreen());
                   },
                 );
-              }, separatorBuilder: (BuildContext context, int index) {
+              },
+              separatorBuilder: (BuildContext context, int index) {
                 return Divider(
                   thickness: 1,
                   endIndent: 15,
                   indent: 15,
                 );
-            },
+              },
             ),
           ),
-
         ],
       ),
-
     );
   }
 }

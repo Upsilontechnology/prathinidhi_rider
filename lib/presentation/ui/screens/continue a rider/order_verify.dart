@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:prathinidhi_rider/presentation/ui/screens/continue%20a%20rider/chat.dart';
 import 'package:prathinidhi_rider/presentation/ui/screens/continue%20a%20rider/delivery_confrim_screen.dart';
 import 'package:prathinidhi_rider/presentation/ui/utility/app_color.dart';
 import 'package:prathinidhi_rider/presentation/ui/widgets/appbar.dart';
@@ -20,7 +21,7 @@ class _OrderVerifyScreenState extends State<OrderVerifyScreen> {
       appBar: CustomAppBar(icon: Icon(Icons.arrow_back,color: Colors.white,),
     ontap:(){  Navigator.of(context).pop();
       }),
-      bottomNavigationBar: navbuttom(),
+      //bottomNavigationBar: navbuttom(),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -42,7 +43,7 @@ class _OrderVerifyScreenState extends State<OrderVerifyScreen> {
                         width: 60,
                         child: CircleAvatar(
                           radius: 40,
-                          backgroundImage: NetworkImage('https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D'),
+                          backgroundImage: AssetImage("assets/pic.jpeg"),
                         ),
                       ),
                       title: Text("Mohammad shahid",style: TextStyle(fontSize: 25,fontWeight: FontWeight.w700),),
@@ -56,7 +57,9 @@ class _OrderVerifyScreenState extends State<OrderVerifyScreen> {
                         children: [
                           SizedBox(
                               width:180,
-                              child: CustomTextButton(onPressed: () {  }, text: ' Live Chat', color: AppColors.primaryColor, txtcolor: Colors.white,)),
+                              child: CustomTextButton(onPressed: () {
+                                Get.to(ChatScreen());
+                              }, text: ' Live Chat', color: AppColors.primaryColor, txtcolor: Colors.white,)),
                           SizedBox(
                               width:180,
                               child: CustomTextButton(onPressed: () {  }, text: ' Call', color: AppColors.primaryColor, txtcolor: Colors.white,)),
@@ -82,8 +85,8 @@ class _OrderVerifyScreenState extends State<OrderVerifyScreen> {
           ],
         ),
       ),
-      floatingActionButton: floatingaction(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      // floatingActionButton: floatingaction(),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 
