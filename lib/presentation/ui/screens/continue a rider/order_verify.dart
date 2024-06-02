@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:prathinidhi_rider/presentation/ui/screens/continue%20a%20rider/chat.dart';
+import 'package:prathinidhi_rider/presentation/ui/screens/continue%20a%20rider/chat_screen.dart';
 import 'package:prathinidhi_rider/presentation/ui/screens/continue%20a%20rider/delivery_confrim_screen.dart';
 import 'package:prathinidhi_rider/presentation/ui/utility/app_color.dart';
 import 'package:prathinidhi_rider/presentation/ui/widgets/appbar.dart';

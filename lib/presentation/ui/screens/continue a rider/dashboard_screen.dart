@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:prathinidhi_rider/presentation/ui/widgets/dashapp.dart';
 import 'package:prathinidhi_rider/presentation/ui/widgets/order_status tile.dart';
 import 'package:prathinidhi_rider/presentation/ui/utility/app_color.dart';
 import 'package:prathinidhi_rider/presentation/ui/widgets/appbar.dart';
@@ -18,11 +19,11 @@ class _dashBoardScreenState extends State<dashBoardScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: CustomAppBar(
+      appBar: dashAppBar(
         icon: Padding(
           padding: const EdgeInsets.only(left: 12),
           child: CircleAvatar(radius: 50,
-            backgroundImage: AssetImage("assets/pic.jpeg")
+              backgroundImage: AssetImage("assets/pic.jpeg")
           ),
         ),
       ),
@@ -93,7 +94,7 @@ class _dashBoardScreenState extends State<dashBoardScreen> {
                         decoration: BoxDecoration(
                             color: Colors.grey.shade100,
                             borderRadius:
-                                BorderRadius.all(Radius.circular(12))),
+                            BorderRadius.all(Radius.circular(12))),
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: ListViewScreen(),

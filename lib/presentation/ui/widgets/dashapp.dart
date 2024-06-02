@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 import 'package:prathinidhi_rider/presentation/ui/screens/continue%20a%20rider/profile_screen.dart';
 import 'package:prathinidhi_rider/presentation/ui/utility/app_color.dart';
 
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({Key? key, required this.icon, this.ontap})
+class dashAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const dashAppBar({Key? key,  this.ontap, required this.icon})
       : super(key: key);
 
   @override
@@ -35,9 +35,16 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   color: Colors.white,
                 ))),
       ],
-      leading: IconButton(
-        onPressed: ontap,
-        icon: icon,
+      leading: CircleAvatar(
+        //backgroundColor: Colors.transparent, // Ensure transparency for the avatar background
+        child: ClipOval(
+          child: Image.asset(
+              "assets/pic.jpeg",
+              fit: BoxFit.cover, // Maintain aspect ratio and cover the entire circle
+              height: double.infinity,// Fixed height
+              width: 40 // Fixed width
+          ),
+        ),
       ),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.only(

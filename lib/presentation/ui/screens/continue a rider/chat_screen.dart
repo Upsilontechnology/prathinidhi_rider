@@ -3,7 +3,6 @@ import 'package:flutter_chat_ui/flutter_chat_ui.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 import 'package:image_picker/image_picker.dart';
 import 'package:prathinidhi_rider/presentation/ui/utility/app_color.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'dart:io';
 
 import 'package:prathinidhi_rider/presentation/ui/widgets/appbar.dart';
@@ -37,14 +36,8 @@ class _ChatScreenState extends State<ChatScreen> {
           ),
         ),
       ),
-      body: Stack(
+      body: Column(
         children: [
-          Positioned.fill(
-            child: Image.network(
-              'https://e0.pxfuel.com/wallpapers/875/426/desktop-wallpaper-i-whatsapp-background-chat-whatsapp-graffiti.jpg',
-              fit: BoxFit.cover,
-            ),
-          ),
           Expanded(
             child: Chat(
               messages: _messages,
@@ -65,22 +58,21 @@ class _ChatScreenState extends State<ChatScreen> {
           ),
         ],
       ),
-
     );
   }
 
   Widget _buildCustomInput() {
     return Container(
       color: Colors.transparent,
-      padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
+      padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 12.0),
       child: Row(
         children: <Widget>[
           Expanded(
             child: Container(
-              height: 60.0, // Set the desired height here
+              height: 60.0,
               decoration: BoxDecoration(
                 color: AppColors.primaryColor,
-                borderRadius: BorderRadius.circular(30.0), // Circular shape
+                borderRadius: BorderRadius.circular(30.0),
               ),
               padding: EdgeInsets.symmetric(horizontal: 20.0),
               alignment: Alignment.center,
@@ -96,10 +88,10 @@ class _ChatScreenState extends State<ChatScreen> {
                       textInputAction: TextInputAction.send,
                       style: TextStyle(color: Colors.black),
                       decoration: InputDecoration(
-                        hintText: '  Type a message.....',
+                        hintText: 'Type a message.....',
                         hintStyle: TextStyle(color: Colors.black),
                         border: InputBorder.none,
-                        contentPadding: EdgeInsets.symmetric(vertical: 00),
+                        contentPadding: EdgeInsets.symmetric(vertical: 0),
                       ),
                       onSubmitted: (value) {
                         if (value.trim().isNotEmpty) {
@@ -107,7 +99,6 @@ class _ChatScreenState extends State<ChatScreen> {
                         }
                       },
                     ),
-
                   ),
                   IconButton(
                     icon: Icon(Icons.send, color: Colors.white),
@@ -123,7 +114,6 @@ class _ChatScreenState extends State<ChatScreen> {
               ),
             ),
           ),
-
         ],
       ),
     );
@@ -156,23 +146,19 @@ class _ChatScreenState extends State<ChatScreen> {
         size: File(pickedFile.path).lengthSync(),
         uri: pickedFile.path,
       );
-
       _addMessage(imageMessage);
+    } else {
+      // Handle the case when no image is selected
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('No image selected')),
+      );
     }
   }
 
   void _addMessage(types.Message message) {
     setState(() {
       _messages.insert(0, message);
+      print("Message added: ${message.toJson()}");
     });
-  }
-
-  void _initiateCall() async {
-    const phoneNumber = 'tel:+1234567890'; // Replace with the desired phone number
-    if (await canLaunch(phoneNumber)) {
-      await launch(phoneNumber);
-    } else {
-      throw 'Could not launch $phoneNumber';
-    }
   }
 }

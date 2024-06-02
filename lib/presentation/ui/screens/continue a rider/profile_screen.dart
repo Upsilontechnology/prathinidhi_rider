@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:prathinidhi_rider/presentation/ui/screens/continue%20a%20rider/dashboard_screen.dart';
 import 'package:prathinidhi_rider/presentation/ui/utility/app_color.dart';
 import 'package:prathinidhi_rider/presentation/ui/widgets/appbar.dart';
+import 'package:prathinidhi_rider/presentation/ui/widgets/dashapp.dart';
 import 'package:prathinidhi_rider/presentation/ui/widgets/floatingaction.dart';
 import 'package:prathinidhi_rider/presentation/ui/widgets/navbar.dart';
 
@@ -27,7 +28,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      appBar: CustomAppBar(
+      appBar: dashAppBar(
         icon: Padding(
           padding: const EdgeInsets.only(left: 12),
           child: CircleAvatar(radius: 50,
